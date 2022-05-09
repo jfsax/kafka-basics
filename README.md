@@ -68,3 +68,9 @@ echo '{ "partitions": [ { "topic": "TOPIC_NAME", "partition": 0, "offset": 1 } ]
 (mac) bin/kafka-delete-records.sh --bootstrap-server=localhost:9092 --offset-json-file delete-records.json
 (windows) .\bin\windows\kafka-delete-records.bat --bootstrap-server=localhost:9092 --offset-json-file delete-records.json
 ```
+
+### deleting a topic
+```shell
+(mac) bin/kafka-topics.sh --topic="TOPIC_NAME" --delete --bootstrap-server=localhost:9092
+(windows) .\bin\windows\kafka-topics.bat --topic="TOPIC_NAME" --delete --bootstrap-server=localhost:9092
+```
