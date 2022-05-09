@@ -51,8 +51,20 @@ how to setup, run and send/consume messages in Kafka
 ### reading messages (consumer)
 ```shell
 (mac) bin/kafka-console-consumer.sh --bootstrap-server=localhost:9092 --topic="TOPIC_NAME"
-(windows) .\bin\windows\kafka-console-consumer.sh --bootstrap-server=localhost:9092 --topic="TOPIC_NAME"
+(windows) .\bin\windows\kafka-console-consumer.bat --bootstrap-server=localhost:9092 --topic="TOPIC_NAME"
 ```
 
 - the command above will only read messages sent <b>after</b> the consumer started running.
 - to read messages sent before the consumer started reading, add the property `--from-beginning` to the command above.
+
+### deleting a message
+- first create a configuration file in JSON to describe the record(s) you wish to delete:
+```
+echo '{ "partitions": [ { "topic": "TOPIC_NAME", "partition": 0, "offset": 1 } ],  "version": 1 }' > delete-records.json
+```
+
+- then run:
+```shell
+(mac) bin/kafka-delete-records.sh --bootstrap-server=localhost:9092 --offset-json-file delete-records.json
+(windows) .\bin\windows\kafka-delete-records.bat --bootstrap-server=localhost:9092 --offset-json-file delete-records.json
+```
