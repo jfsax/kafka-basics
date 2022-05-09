@@ -26,7 +26,7 @@ How to setup, run and send/consume messages in Kafka
 
 ## kafka commands:
 ### creating a topic
-- kafka will create topics automatically if `auto.create.topics.enable` is added to the file `config/server.properties`
+- kafka will create topics automatically if the property `auto.create.topics.enable` is added to the file `server.properties`
 - to create your topic manually, run:
 ```shell
 (mac) bin/kafka-topics.sh --create --bootstrap-server=localhost:9092 --replication-factor=1 --partitions=1 --topic="TOPIC_NAME"
