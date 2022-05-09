@@ -14,13 +14,13 @@ How to setup, run and send/consume messages in Kafka
 - open a terminal and start zookeeper with the following command:
 
 ```shell
-(mac) bin/kafka-server-start.sh config/server.properties
+(mac) bin/zookeeper-server-start.sh config/zookeeper.properties
 (windows) .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 ```
 - open a second terminal and start kafka:
 
 ```shell
-(mac) bin/zookeeper-server-start.sh config/zookeeper.properties
+(mac) bin/kafka-server-start.sh config/server.properties
 (windows) .\bin\windows\kafka-server-start.bat .\config\server.properties
 ```
 
