@@ -3,8 +3,8 @@ how to setup, run and send/consume messages in Kafka
 
 ## download & setup
 - https://kafka.apache.org/downloads
-- (mac)https://www.tutorialkart.com/apache-kafka/install-apache-kafka-on-mac/
-- (windows)https://www.geeksforgeeks.org/how-to-install-and-run-apache-kafka-on-windows/
+- (mac) https://www.tutorialkart.com/apache-kafka/install-apache-kafka-on-mac/
+- (windows) https://www.geeksforgeeks.org/how-to-install-and-run-apache-kafka-on-windows/
 
 ## running kafka & zookeeper
 - commands should be run from kafka's root directory
@@ -26,7 +26,7 @@ how to setup, run and send/consume messages in Kafka
 ## kafka commands:
 ### creating a topic
 - kafka will create topics automatically if the property `auto.create.topics.enable` is added to the file `server.properties`
-- to create your topic manually, run:
+- to create your topic manually, open a third terminal and run:
 ```shell
 (mac) bin/kafka-topics.sh --create --bootstrap-server=localhost:9092 --replication-factor=1 --partitions=1 --topic="TOPIC_NAME"
 (windows) .\bin\windows\kafka-topics.bat --create --bootstrap-server=localhost:9092 --replication-factor=1 --partitions=1 --topic="TOPIC_NAME"
@@ -37,3 +37,22 @@ how to setup, run and send/consume messages in Kafka
 (mac) bin/kafka-topics.sh --list --bootstrap-server=localhost:9092
 (windows) .\bin\windows\kafka-topics.bat --list --bootstrap-server=localhost:9092
 ```
+
+### sending messages (producer)
+- a producer can send data with or without a key. if a key is not specified, it will remain `null` by default.
+- to send a key-value message, add the properties: `--property "parse.key=true" --property "key.separator=;"` to the command below. messages with the same key will be sent to the same partition.
+```shell
+(mac) bin/kafka-console-producer.sh --broker-list=localhost:9092 --topic="TOPIC_NAME"
+(windows) .\bin\windows\kafka-console-producer.bat --broker-list=localhost:9092 --topic="TOPIC_NAME"
+```
+- after running the command, type your message and press enter.
+- CTRL+C quits the producer.
+
+### reading messages (consumer)
+```shell
+(mac) bin/kafka-console-consumer.sh --bootstrap-server=localhost:9092 --topic="TOPIC_NAME"
+(windows) .\bin\windows\kafka-console-consumer.sh --bootstrap-server=localhost:9092 --topic="TOPIC_NAME"
+```
+
+- the command above will only read messages sent <b>after</b> the consumer started running.
+- to read messages sent before the consumer started reading, add the property `--from-beginning` to the command above.
