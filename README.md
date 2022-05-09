@@ -1,7 +1,5 @@
 # kafka basics
-How to setup, run and send/consume messages in Kafka
-
-# kafka basics
+how to setup, run and send/consume messages in Kafka
 
 ## download & setup
 - https://kafka.apache.org/downloads
