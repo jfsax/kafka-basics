@@ -3,7 +3,7 @@ How to setup, run and send/consume messages in Kafka
 
 # kafka basics
 
-### download & setup
+## download & setup
 - https://kafka.apache.org/downloads
 - (mac)https://www.tutorialkart.com/apache-kafka/install-apache-kafka-on-mac/
 - (windows)https://www.geeksforgeeks.org/how-to-install-and-run-apache-kafka-on-windows/
@@ -22,4 +22,17 @@ How to setup, run and send/consume messages in Kafka
 ```shell
 (mac) bin/zookeeper-server-start.sh config/zookeeper.properties
 (windows) .\bin\windows\kafka-server-start.bat .\config\server.properties
+```
+
+## kafka commands:
+- creating a topic
+```shell
+(mac) bin/kafka-topics.sh --create --bootstrap-server=localhost:9092 --replication-factor=1 --partitions=1 --topic="TOPIC_NAME"
+(windows) .\bin\windows\kafka-topics.bat --create --bootstrap-server=localhost:9092 --replication-factor=1 --partitions=1 --topic="TOPIC_NAME"
+```
+
+- listing topics
+```shell
+(mac) bin/kafka-topics.sh --list --bootstrap-server=localhost:9092
+(windows) .\bin\windows\kafka-topics.bat --list --bootstrap-server=localhost:9092
 ```
