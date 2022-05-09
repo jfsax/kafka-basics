@@ -7,8 +7,9 @@ how to setup, run and send/consume messages in Kafka
 - (windows)https://www.geeksforgeeks.org/how-to-install-and-run-apache-kafka-on-windows/
 
 ## running kafka & zookeeper
-- run the following commands from kafka's root folder
+- commands should be run from kafka's root directory
 - zookeeper must be started before kafka
+
 - open a terminal and start zookeeper with the following command:
 
 ```shell
